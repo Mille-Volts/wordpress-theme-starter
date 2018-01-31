@@ -4,7 +4,9 @@ This project brings great modern features to theme creation on Wordpress: hot mo
 
 ## Getting started
 
-To get the project running, you need to have Docker with docker-compose installed — this create a full Wordpress environment.
+### Installation
+
+To get the project running, **you need to have Docker with docker-compose installed** — this create a full Wordpress environment.
 
 Then, you simply need to install and start the project.
 
@@ -13,21 +15,47 @@ npm install
 npm start
 ```
 
-The browser is automatically opened on http://localhost:3000.
+This process usually last several minutes. At the end, the browser automatically opens on http://localhost:3000.
 
-Before anything else, you'll need to **complete the Wordpress installation** and **choose the appropriate theme**.
+Before anything else, you'll need to **complete the Wordpress installation** and **choose the right theme**.
 
-Then, you'll be able to change the `src/styles/index.scss` and `src/js/index.js` files and see the changes automatically refreshed in your browser.
+1. Create the database
+   - Open PhpMyAdmin http://localhost:8080
+   - Log in using the username `root` and the password `wordpress`
+   - On the top left angle, click on the link to create a new database
+   - Set a name for this database (eg: "mywebsite") and validate
+2. Complete installation of Wordpress
+   - Choose your language
+   - Set the database using the settings:
+     - database: `mywebsite` (or whatever you chose in the previous step)
+     - username: `root`
+     - password: `wordpress`
+     - host: `db`
+   - Complete the installation and choose a username and password for your administrator account
+3. Set the theme
+   - Go to the Wordpress dashboard (http://localhost/wp-admin/)
+   - Go to "Appareances" > "Themes" to choose a the Wordpress Starter Theme that goes by the name "Twenty Seventeen/my-wordpress-theme" (don't be mistaken as there are 2 Twenty Seventeen themes)
+   - Activate the theme
 
-If everything is working fine, you should see a "Wordpress Starter Theme is working!" message on every page.
+If everything is working fine, you should see a "Wordpress Starter Theme is working!" message on http://localhost:3000.
 
-The CSS and Javascript written in the `src/styles/` and `src/js/` folders are automatically applied without refreshing the browser. You can also change the theme files (`.php` files) but you'll need to **refresh manually** the webpage to see the changes.
+### Development
+
+If not already started, run `npm start`. This will open the http://localhost:3000 page on your browser. Any change you make to the `src/styles/index.scss` and `src/js/index.js` files are automatically previewed in your browser.
+
+The CSS and Javascript written in the `src/styles/` and `src/js/`, as well as images in these folders, are automatically applied without refreshing the browser. You can also change the theme files (`.php` files) but you'll need to **refresh manually** the webpage to see the changes.
+
 
 ## Publishing
 
+### As a folder
+
 To publish the theme, simply run `npm run build`. This will create a `dist/my-wordpress-theme` folder with all the files for the theme. Copy and paste everything into your `wp-content/themes/` folder.
 
+### As a ZIP
+
 You can also zip your theme: `npm run zip`. This will create a `my-wordpress-theme.zip` file you can upload to any Wordpress website.
+
 
 ## How to use it
 
