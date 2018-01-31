@@ -1,0 +1,15 @@
+body:before {
+    background: rgb(189, 38, 38);
+    border: 1px solid rgb(133, 46, 6);
+    content: "Wordpress Theme Starter is working!";
+    color: #fff;
+    font: bold 14px/20px Verdana, sans-serif;
+    left: 50%;
+    margin: 0 0 0 (- 150px - 40px);
+    padding: 15px 40px;
+    position: fixed;
+    text-align: center;
+    top: 35px;
+    width: 300px;
+    z-index: 999999;
+}

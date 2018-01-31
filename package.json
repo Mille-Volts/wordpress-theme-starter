@@ -1,0 +1,44 @@
+{
+    "name": "my-wordpress-theme",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/index.js",
+    "browserslist": [
+        "> 1%",
+        "ie > 9"
+    ],
+    "scripts": {
+        "postinstall": "npm run build",
+        "build": "webpack --config webpack.prod.js",
+        "dev": "webpack-dev-server --inline --hot --port=3000 --config webpack.dev.js",
+        "prestart": "docker-compose up -d",
+        "start": "npm run dev",
+        "prezip": "npm run build",
+        "zip": "bestzip \"$npm_package_name.zip\" \"dist/$npm_package_name/*\""
+    },
+    "devDependencies": {
+        "autoprefixer": "^7.2.5",
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-preset-env": "^1.6.1",
+        "bestzip": "^1.1.4",
+        "clean-webpack-plugin": "^0.1.18",
+        "copy-webpack-plugin": "^4.3.1",
+        "css-loader": "^0.28.9",
+        "extract-text-webpack-plugin": "^3.0.2",
+        "file-loader": "^1.1.6",
+        "node-sass": "^4.7.2",
+        "open-browser-webpack-plugin": "0.0.5",
+        "postcss-loader": "^2.0.10",
+        "sass-loader": "^6.0.6",
+        "style-loader": "^0.20.1",
+        "uglifyjs-webpack-plugin": "^1.1.8",
+        "url-loader": "^0.6.2",
+        "webpack": "^3.10.0",
+        "webpack-dev-server": "^2.11.1",
+        "webpack-merge": "^4.1.1",
+        "write-file-webpack-plugin": "^4.2.0"
+    },
+    "author": "",
+    "license": "ISC"
+}

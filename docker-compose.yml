@@ -1,0 +1,20 @@
+version: "3"
+services:
+  mysql:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress
+    links:
+     - "mysql:db"
+    ports: ["8080:80"]
+  wordpress:
+    image: wordpress
+    links:
+     - "mysql:db"
+    ports: ["80:80"]
+    volumes:
+     - "./dist/$npm_package_name:/var/www/html/wp-content/themes/$npm_package_name:ro"
