@@ -8,10 +8,9 @@
         "ie > 9"
     ],
     "scripts": {
-        "postinstall": "npm run build",
         "build": "webpack --config webpack.prod.js",
-        "dev": "webpack-dev-server --inline --hot --port=3000 --config webpack.dev.js",
-        "prestart": "docker-compose up -d",
+        "dev": "webpack-dev-server --inline --watch-content-base --open --port=3000 --config webpack.dev.js",
+        "prestart": "mkdir -p dist && docker-compose up -d",
         "start": "npm run dev",
         "prezip": "npm run build",
         "zip": "bestzip \"$npm_package_name.zip\" \"dist/$npm_package_name/*\""
@@ -28,7 +27,6 @@
         "extract-text-webpack-plugin": "^3.0.2",
         "file-loader": "^1.1.6",
         "node-sass": "^4.7.2",
-        "open-browser-webpack-plugin": "0.0.5",
         "postcss-loader": "^2.0.10",
         "sass-loader": "^6.0.6",
         "style-loader": "^0.20.1",

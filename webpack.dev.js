@@ -1,6 +1,5 @@
 const merge = require('webpack-merge');
 const path = require('path');
-const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const { compiler, THEME_NAME } = require('./webpack.common.js');
 
 const proxyConfig = {
@@ -14,7 +13,6 @@ const proxyConfig = {
     secure: false
 }
 
-console.log(`./dist/${THEME_NAME}/assets`);
 module.exports = merge(compiler, {
     context: path.resolve(__dirname, './'),
     devtool: 'eval-source-map',
@@ -25,7 +23,5 @@ module.exports = merge(compiler, {
             '**': proxyConfig,
         },
     },
-    plugins: [
-        new OpenBrowserPlugin({ url: 'http://localhost:3000' }),
-    ],
+    plugins: [],
 });

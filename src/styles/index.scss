@@ -1,15 +1,42 @@
-body:before {
-    background: rgb(189, 38, 38);
-    border: 1px solid rgb(133, 46, 6);
-    content: "Wordpress Theme Starter is working!";
+@keyframes slide-left {
+    0% {
+        transform: translateX(-100%);
+        margin-left: 0;
+    }
+    15% {
+        transform: translateX(0%);
+        margin-left: 0;
+    }
+    90% {
+        transform: translateX(0%);
+        margin-left: 0;
+    }
+    100% {
+        transform: translateX(-100%);
+        margin-left: 10px;
+    }
+}
+
+#wst-banner {
+    animation: slide-left 5s ease 1;
+    background: #2BB36D;
     color: #fff;
-    font: bold 14px/20px Verdana, sans-serif;
-    left: 50%;
-    margin: 0 0 0 (- 150px - 40px);
-    padding: 15px 40px;
+    cursor: pointer;
+    font: bold italic 32px Palatino, Georgia, sans-serif;
+    left: 0;
+    margin: 35px 0;
+    margin-left: 10px;
+    max-width: 100%;
+    padding: 16px 32px;
     position: fixed;
-    text-align: center;
-    top: 35px;
-    width: 300px;
+    text-align: left;
+    top: 0;
+    transform: translateX(-100%);
+    transition: all 0.35s ease;
+    width: auto;
     z-index: 999999;
+    &:hover {
+        transform: translateX(0%);
+        margin-left: 0;
+    }
 }

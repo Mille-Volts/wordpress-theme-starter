@@ -4,17 +4,25 @@ services:
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+      MYSQL_DATABASE: website
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    environment:
-      MYSQL_ROOT_PASSWORD: wordpress
     links:
      - "mysql:db"
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress
     ports: ["8080:80"]
   wordpress:
     image: wordpress
     links:
      - "mysql:db"
     ports: ["80:80"]
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: website
     volumes:
      - "./dist/$npm_package_name:/var/www/html/wp-content/themes/$npm_package_name:ro"

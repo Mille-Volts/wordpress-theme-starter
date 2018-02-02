@@ -19,31 +19,20 @@ This process usually last several minutes. At the end, the browser automatically
 
 Before anything else, you'll need to **complete the Wordpress installation** and **choose the right theme**.
 
-1. Create the database
-   - Open PhpMyAdmin http://localhost:8080
-   - Log in using the username `root` and the password `wordpress`
-   - On the top left angle, click on the link to create a new database
-   - Set a name for this database (eg: "mywebsite") and validate
-2. Complete installation of Wordpress
+1. Complete installation of Wordpress
    - Choose your language
-   - Set the database using the settings:
-     - database: `mywebsite` (or whatever you chose in the previous step)
-     - username: `root`
-     - password: `wordpress`
-     - host: `db`
    - Complete the installation and choose a username and password for your administrator account
 3. Set the theme
    - Go to the Wordpress dashboard (http://localhost/wp-admin/)
-   - Go to "Appareances" > "Themes" to choose a the Wordpress Starter Theme that goes by the name "Twenty Seventeen/my-wordpress-theme" (don't be mistaken as there are 2 Twenty Seventeen themes)
-   - Activate the theme
+   - Go to "Appareances" > "Themes" to activate the Wordpress Starter Theme
 
-If everything is working fine, you should see a "Wordpress Starter Theme is working!" message on http://localhost:3000.
+If everything is working fine, you should see a "Wordpress Starter Theme is working!" message when loading http://localhost:3000.
 
 ### Development
 
 If not already started, run `npm start`. This will open the http://localhost:3000 page on your browser. Any change you make to the `src/styles/index.scss` and `src/js/index.js` files are automatically previewed in your browser.
 
-The CSS and Javascript written in the `src/styles/` and `src/js/`, as well as images in these folders, are automatically applied without refreshing the browser. You can also change the theme files (`.php` files) but you'll need to **refresh manually** the webpage to see the changes.
+The CSS and Javascript written in the `src/styles/` and `src/js/` (as well as images in these folders) and **all template files** are automatically applied without refreshing the browser.
 
 
 ## Publishing
@@ -91,7 +80,7 @@ These defaults values can be modified in the `docker-compose.yml` file.
 
 If you like this project, please let us know :)
 
-If you want to contribute to enhance the process, there are certainly a lot of things to do: linting, formatting, auto reload when a php file is changed, etc.
+If you want to contribute to enhance the process, there are certainly a lot of things to do: linting, formatting, etc.
 
 This project has been based mostly on the [Webpack Wordpress project](https://github.com/sloansparger/webpack-wordpress). Thanks to the author(s)!
 
